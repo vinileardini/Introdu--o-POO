@@ -1,10 +1,10 @@
 class Estudante:
     
-    def __init__(self,nome,idade):
+    def __init__(self,nome,idade,notas):
         
         self.nome = nome
         self.idade = idade
-        self.notas = []
+        self.notas = [notas]
         
     
     def media(self):
@@ -16,12 +16,14 @@ class Turma:
     def __init__(self):
         self.list_estudantes = []
         
-    def adicionaEstudante(self):
-        self.list_estudantes.append(Estudante)
+    def adicionaEstudante(self,estudante):
+        self.list_estudantes.append(estudante)
         
     def mediaGeral(self):
        for i in range(len(self.list_estudantes)):
            print(i)
+
+
 
 
 
