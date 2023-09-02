@@ -1,31 +1,37 @@
-class Produto:
-
-    def __init__(self,nome,preco,quantidade):
-        
-        self.nome = nome
-        self.preco = preco
-        self.quantidade = quantidade
-    
-    def comprar(self,quantidadeCompra):
-        self.quantidadeCompra = quantidadeCompra
-
-        self.quantidade = self.quantidade - self.quantidadeCompra
-
-    def vender(self,quantidadeEstoque):
-
-        self.quantidadeEstoque = quantidadeEstoque
-
-        self.quantidade = self.quantidade + self.quantidadeEstoque
-    
+from class_produto import Produto
 
 class Loja:
 
-    def __init__(self):
+    def __init__(self,produtos):
 
-        self.produtos = []
-        self.produtos.append(Produto)
+        self.produtos = produtos
         
     def valor_inventario(self):
+        valor_total = 0
+        for produto in self.produtos:
+            valor_total += produto.preco * produto.quantidade
+        return valor_total
+
+p1 = Produto('lapis',2,50)
+p2 = Produto('borracha',4,30)
+p3 = Produto('caneta',5,20)
+
+loja = Loja([p1,p2,p3])
+
+valor_estoque = loja.valor_inventario()
+
+print(valor_estoque)
+
+p1.comprar(10)
+
+venda = loja.valor_inventario()
+
+print(venda)
+
+
+
+
+
 
         
 

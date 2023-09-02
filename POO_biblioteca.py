@@ -1,29 +1,29 @@
-class Livro:
-
-    def __init__(self,titulo,autor):
-        self.titulo = titulo
-        self.autor = autor
-        self.status = 'Disponível'
-    
-    def emprestar(self):
-
-        self.status = 'Emprestado'
-
-    
-    def devolucao(self):
-
-        self.status = 'Disponível'
-
+from class_livro import Livro
 
 class Biblioteca:
 
-    def __init__(self):
+    def __init__(self,livros):
 
-        self.livros = []
+        self.livros = livros
     
     def livros_disponiveis(self):
         lista_livros_disponiveis = []
-        for i in range(len(self.livros)):
-            if(self.livros.__getattribute__ == 'status'):
-                lista_livros_disponiveis.append()
+        for livro in self.livros:
+            if livro.status == 'Disponivel':
+                lista_livros_disponiveis.append(livro.titulo)
+        return lista_livros_disponiveis
+    
+
+livro1 = Livro('Senhor do anéis','J. R. R. Tolkien')
+livro2 = Livro('O Hobbit','J. R. R. Tolkien')
+livro3 = Livro('Jogador N°1','Ernest Cline')
+
+livrosBiblioteca = Biblioteca([livro1,livro2,livro3])
+
+
+livro2.emprestar()
+
+livrosDisponiveis = livrosBiblioteca.livros_disponiveis()
+
+print(livrosDisponiveis)
         
